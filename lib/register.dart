@@ -10,6 +10,7 @@ class Register extends StatefulWidget {
 
 class _MyHomePageState extends State<Register> {
   var primaryColor = const Color(0xFF846BFF);
+  var pink = const Color.fromARGB(255, 244, 41, 255);
   var white = const Color(0xffffffff);
 
   @override
@@ -96,6 +97,23 @@ class _MyHomePageState extends State<Register> {
               const SizedBox(
                 width: 300,
                 child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                    hintText: 'Re-Enter Password',
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const SizedBox(
+                width: 300,
+                child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
@@ -135,7 +153,7 @@ class _MyHomePageState extends State<Register> {
                     },
                     child: Text(
                       "Login",
-                      style: TextStyle(color: primaryColor),
+                      style: TextStyle(color: pink),
                     ),
                   )
                 ],

@@ -14,11 +14,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Famvilla',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Dashboard(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -33,6 +34,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var primaryColor = const Color(0xFF846BFF);
   var white = const Color(0xffffffff);
+  var pink = const Color.fromARGB(255, 244, 41, 255);
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: Text(
                       "Register",
-                      style: TextStyle(color: primaryColor),
+                      style: TextStyle(color: pink),
                     ),
                   )
                 ],
