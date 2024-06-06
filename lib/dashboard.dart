@@ -99,35 +99,37 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           body: Stack(children: [
-            if (menuVisible)
-              Stack(children: [
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    height: 50,
-                    width: 100,
-                    // margin: const EdgeInsets.only(top: 65),
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    margin: const EdgeInsets.only(right: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: secondaryColor),
-                    child: const Column(
-                      children: [
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text("Profile"),
-                        Text("Logout"),
-                      ],
-                    ),
-                  ),
-                ),
-              ]),
             Container(
               height: 700,
               width: 300,
               color: const Color(0xFFf6f6f6),
+              child: Column(children: [
+                Container(
+                  height: 60,
+                  width: double.infinity,
+                  color: Color(0x1A846BFF),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(24, 16, 16, 16),
+                        height: 28,
+                        width: 28,
+                        child: SvgPicture.asset('lib/assets/party_popper.svg'),
+                      ),
+                      Text(
+                        "Dashboard",
+                        style: TextStyle(
+                            color: black,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 20),
+                      ),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                SvgPicture.asset('lib/assets/menu_bottom.svg'),
+              ]),
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(376, 0, 76, 0),
@@ -136,7 +138,19 @@ class _DashboardState extends State<Dashboard> {
                     ScrollConfiguration.of(context).copyWith(scrollbars: false),
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(
+                        height: 68,
+                      ),
+                      Text(
+                        "Hey Admin",
+                        style: TextStyle(
+                            color: black,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 40),
+                      ),
+                      const SizedBox(height: 32),
                       Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -223,7 +237,7 @@ class _DashboardState extends State<Dashboard> {
                                                     fontSize: 24),
                                               ),
                                               Text(
-                                                "Drafts",
+                                                "In progress",
                                                 style: TextStyle(
                                                     color: black,
                                                     fontWeight: FontWeight.w400,
@@ -267,7 +281,7 @@ class _DashboardState extends State<Dashboard> {
                                                     fontSize: 24),
                                               ),
                                               Text(
-                                                "Drafts",
+                                                "Pending",
                                                 style: TextStyle(
                                                     color: black,
                                                     fontWeight: FontWeight.w400,
@@ -311,7 +325,7 @@ class _DashboardState extends State<Dashboard> {
                                                     fontSize: 24),
                                               ),
                                               Text(
-                                                "Drafts",
+                                                "Completed",
                                                 style: TextStyle(
                                                     color: black,
                                                     fontWeight: FontWeight.w400,
@@ -333,6 +347,7 @@ class _DashboardState extends State<Dashboard> {
                               flex: 2,
                               child: Container(
                                 height: 600,
+                                color: const Color(0xFFf6f6f6),
                                 child: Column(children: [
                                   Container(
                                     height: 120,
@@ -384,6 +399,9 @@ class _DashboardState extends State<Dashboard> {
                                   Container(
                                     height: 480,
                                     child: Row(children: [
+                                      const SizedBox(
+                                        width: 56,
+                                      ),
                                       Expanded(
                                         child: PieChart(
                                           dataMap: dataMap,
@@ -408,228 +426,216 @@ class _DashboardState extends State<Dashboard> {
                                           ),
                                         ),
                                       ),
+                                      const SizedBox(
+                                        width: 72,
+                                      ),
                                       Expanded(
-                                          child: Container(
-                                        height: 480,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  Text(
-                                                    "Requested",
-                                                    style: TextStyle(
-                                                        color: black,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 24),
-                                                  ),
-                                                  Expanded(
-                                                    child: Container(
-                                                      margin:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 6),
-                                                      height: 4,
-                                                      color: const Color(
-                                                          0xff846BFF),
+                                        child: Container(
+                                          height: 480,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.end,
+                                                  children: [
+                                                    Text(
+                                                      "Requested",
+                                                      style: TextStyle(
+                                                          color: black,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 24),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    "2",
-                                                    style: TextStyle(
-                                                        color: black,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 12),
-                                                  ),
-                                                ]),
-                                            Text(
-                                              "Events that are yet to be approved by Famville",
-                                              style: TextStyle(
-                                                  color: black,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 12),
-                                            ),
-                                            Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  Text(
-                                                    "Requested",
-                                                    style: TextStyle(
-                                                        color: black,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 24),
-                                                  ),
-                                                  Expanded(
-                                                    child: Container(
-                                                      margin:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 6),
-                                                      height: 4,
-                                                      color: const Color(
-                                                          0xff846BFF),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 6),
+                                                        height: 4,
+                                                        color: const Color(
+                                                            0xff846BFF),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    "2",
-                                                    style: TextStyle(
-                                                        color: black,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 12),
-                                                  ),
-                                                ]),
-                                            Text(
-                                              "Events that are approved by Famville",
-                                              style: TextStyle(
-                                                  color: black,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 12),
-                                            ),
-                                            Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  Text(
-                                                    "Requested",
-                                                    style: TextStyle(
-                                                        color: black,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 24),
-                                                  ),
-                                                  Expanded(
-                                                    child: Container(
-                                                      margin:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 6),
-                                                      height: 4,
-                                                      color: const Color(
-                                                          0xff846BFF),
+                                                    Text(
+                                                      "2",
+                                                      style: TextStyle(
+                                                          color: black,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 12),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    "2",
-                                                    style: TextStyle(
-                                                        color: black,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 12),
-                                                  ),
-                                                ]),
-                                            Text(
-                                              "Events that require adherence to Famville policies",
-                                              style: TextStyle(
-                                                  color: black,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 12),
-                                            ),
-                                          ],
+                                                  ]),
+                                              Text(
+                                                "Events that are yet to be approved by Famville",
+                                                style: TextStyle(
+                                                    color: black,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12),
+                                              ),
+                                              const SizedBox(
+                                                height: 30,
+                                              ),
+                                              Row(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.end,
+                                                  children: [
+                                                    Text(
+                                                      "Approved",
+                                                      style: TextStyle(
+                                                          color: black,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 24),
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 6),
+                                                        height: 4,
+                                                        color: const Color(
+                                                            0xff846BFF),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "2",
+                                                      style: TextStyle(
+                                                          color: black,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 12),
+                                                    ),
+                                                  ]),
+                                              Text(
+                                                "Events that are approved by Famville",
+                                                style: TextStyle(
+                                                    color: black,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12),
+                                              ),
+                                              const SizedBox(
+                                                height: 30,
+                                              ),
+                                              Row(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.end,
+                                                  children: [
+                                                    Text(
+                                                      "Rejected",
+                                                      style: TextStyle(
+                                                          color: black,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 24),
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 6),
+                                                        height: 4,
+                                                        color: const Color(
+                                                            0xff846BFF),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "2",
+                                                      style: TextStyle(
+                                                          color: black,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 12),
+                                                    ),
+                                                  ]),
+                                              Text(
+                                                "Events that require adherence to Famville policies",
+                                                style: TextStyle(
+                                                    color: black,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ))
+                                      ),
+                                      const SizedBox(
+                                        width: 50,
+                                      ),
                                     ]),
                                   ),
                                 ]),
                               ),
                             ),
                           ]),
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "List of Events",
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold),
-                        ),
+                      const SizedBox(
+                        height: 48,
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: SizedBox(
+                        child: Text(
+                          "Your Events",
+                          style: TextStyle(
+                              color: black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 40),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 28,
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
                           height: 500,
                           width: double.infinity,
                           child: ListView.builder(
-                              itemCount: 10,
+                              itemCount: 5,
                               itemBuilder: (context, index) {
                                 return Container(
-                                  height: 60,
-                                  width: 300,
+                                  height: 120,
+                                  width: double.infinity,
                                   margin: const EdgeInsets.only(top: 10),
-                                  padding: const EdgeInsets.only(left: 10),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 48),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10.0),
-                                      color: secondaryColor),
+                                      color: const Color(0xFFf6f6f6)),
                                   child: Row(children: [
-                                    Text("$index Name : 3rd Birthday"),
-                                    const SizedBox(
-                                      width: 30,
-                                    ),
-                                    const Text("Current Status : Completed"),
-                                    const SizedBox(
-                                      width: 30,
-                                    ),
-                                    const Text("Event Status : Completed"),
-                                    const SizedBox(
-                                      width: 30,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 10),
-                                      child: SizedBox(
-                                        width: 195,
-                                        child: TextField(
-                                          textAlign: TextAlign.center,
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(10.0),
-                                              ),
-                                            ),
-                                            hintText: 'Start Date dd/mm/yyyy',
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 30,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 10),
-                                      child: SizedBox(
-                                        width: 195,
-                                        child: TextField(
-                                          textAlign: TextAlign.center,
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(10.0),
-                                              ),
-                                            ),
-                                            hintText: 'End Date dd/mm/yyyy',
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 30,
+                                    Container(
+                                      height: 70,
+                                      width: 70,
+                                      color: Color(0x1A846BFF),
                                     ),
                                     const Spacer(),
-                                    const Text("Edit"),
-                                    const SizedBox(
-                                      width: 10,
+                                    Text(
+                                      "New moms seminar on handling toddlers",
+                                      style: TextStyle(
+                                          color: black,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 24),
+                                    ),
+                                    const Spacer(),
+                                    Text(
+                                      "12/05/2024 - 14/05/2024",
+                                      style: TextStyle(
+                                          color: black,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 18),
+                                    ),
+                                    const Spacer(),
+                                    Text(
+                                      "Requested",
+                                      style: TextStyle(
+                                          color: black,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 18),
                                     ),
                                     SvgPicture.asset(
                                         'lib/assets/edit_people.svg'),
-                                    const SizedBox(
-                                      width: 30,
-                                    ),
                                   ]),
                                 );
                               }),
@@ -1152,6 +1158,31 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
             ),
+            if (menuVisible)
+              Stack(children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    // margin: const EdgeInsets.only(top: 65),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    margin: const EdgeInsets.only(right: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: secondaryColor),
+                    child: const Column(
+                      children: [
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text("Profile"),
+                        Text("Logout"),
+                      ],
+                    ),
+                  ),
+                ),
+              ]),
           ]),
         ),
       ),
