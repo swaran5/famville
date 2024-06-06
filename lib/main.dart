@@ -1,3 +1,4 @@
+import 'package:famville/create_event.dart';
 import 'package:famville/dashboard.dart';
 import 'package:famville/register.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Dashboard(),
+      home: const MyHomePage(),
     );
   }
 }
