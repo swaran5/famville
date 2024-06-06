@@ -2,7 +2,6 @@ import 'package:famville/create_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pie_chart/pie_chart.dart';
-import 'package:steps_indicator/steps_indicator.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -590,7 +589,7 @@ class _DashboardState extends State<Dashboard> {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Container(
-                          height: 500,
+                          height: 700,
                           width: double.infinity,
                           child: ListView.builder(
                               itemCount: 5,
