@@ -23,49 +23,79 @@ class _CreateEventState extends State<CreateEvent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf6f6f6) ,
-      body:  ScrollConfiguration(
-          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 40,
+      backgroundColor: const Color(0xFFf6f6f6),
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 40,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                const Spacer(),
+                const Text(
+                  "Create a new event",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
                 ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  const Spacer(),
-                  const Text(
-                    "Create an Event",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: SvgPicture.asset('lib/assets/close.svg')),
-                  const SizedBox(
-                    width: 100,
-                  ),
-                ]),
+                const Spacer(),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SvgPicture.asset('lib/assets/close.svg')),
                 const SizedBox(
-                  height: 40,
+                  width: 100,
                 ),
-                const SizedBox(
-                  // color: Colors.amber,
-                  width: 1100,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text("Step 1"),
-                      Text("Step 2"),
-                      Text("Step 3"),
-                      Text("Step 4"),
-                    ],
-                  ),
+              ]),
+              const SizedBox(
+                height: 40,
+              ),
+              Container(
+                color: white,
+                width: 900,
+                padding: const EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      "Step 1",
+                      style: TextStyle(
+                          color: black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 24),
+                    ),
+                    Text(
+                      "Step 2",
+                      style: TextStyle(
+                          color: black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 24),
+                    ),
+                    Text(
+                      "Step 3",
+                      style: TextStyle(
+                          color: black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 24),
+                    ),
+                    Text(
+                      "Step 4",
+                      style: TextStyle(
+                          color: black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 24),
+                    ),
+                  ],
                 ),
-                StepsIndicator(
+              ),
+              Container(
+                color: white,
+                width: 900,
+                padding:
+                    const EdgeInsets.only(bottom: 20, left: 100, right: 100),
+                child: StepsIndicator(
                   selectedStep: currentStep,
                   nbSteps: 4,
                   selectedStepColorOut: const Color(0xFF846BFF),
@@ -74,9 +104,9 @@ class _CreateEventState extends State<CreateEvent> {
                   doneLineColor: const Color(0xFF846BFF),
                   undoneLineColor: const Color(0xFF846BFF),
                   isHorizontal: true,
-                  lineLength: 200,
+                  lineLength: 180,
                   doneStepSize: 50,
-                  unselectedStepSize: 50,
+                  unselectedStepSize: 40,
                   selectedStepSize: 14,
                   selectedStepBorderSize: 10,
                   doneLineThickness: 3,
@@ -107,447 +137,461 @@ class _CreateEventState extends State<CreateEvent> {
                   enableLineAnimation: true,
                   enableStepAnimation: true,
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  alignment: Alignment.center,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        if (currentStep == 0)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: TextField(
-                              focusNode: focusNode1,
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Event name',
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 20),
+                alignment: Alignment.center,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (currentStep == 0)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: TextField(
+                            focusNode: focusNode1,
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Event name',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 0)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Description',
+                        ),
+                      if (currentStep == 0)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Description',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 0)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Language',
+                        ),
+                      if (currentStep == 0)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Language',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 0)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Suitable event age from',
+                        ),
+                      if (currentStep == 0)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Suitable event age from',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 0)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Suitable event age to',
+                        ),
+                      if (currentStep == 0)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Suitable event age from',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 1)
-                          Container(
-                              width: 400,
-                              margin: const EdgeInsets.only(top: 10),
-                              child: const Row(
-                                children: [
-                                  SizedBox(
-                                    width: 195,
-                                    child: TextField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(10.0),
-                                          ),
-                                        ),
-                                        hintText: 'Start Date dd/mm/yyyy',
-                                      ),
+                        ),
+                      if (currentStep == 1)
+                        Container(
+                          width: 400,
+                          margin: const EdgeInsets.only(top: 10),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 195,
+                                color: white,
+                                padding: const EdgeInsets.only(left: 30),
+                                margin: const EdgeInsets.only(top: 10),
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Start date',
+                                    hintStyle: TextStyle(
+                                      color: Color(0xff9A9A9A),
                                     ),
                                   ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  SizedBox(
-                                    width: 195,
-                                    child: TextField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(10.0),
-                                          ),
-                                        ),
-                                        hintText: 'End Date dd/mm/yyyy',
-                                      ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                width: 195,
+                                color: white,
+                                padding: const EdgeInsets.only(left: 30),
+                                margin: const EdgeInsets.only(top: 10),
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'End date',
+                                    hintStyle: TextStyle(
+                                      color: Color(0xff9A9A9A),
                                     ),
                                   ),
-                                ],
-                              )),
-                        if (currentStep == 1)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
                                 ),
-                                hintText: 'Start Time HH:MM',
                               ),
-                            ),
+                            ],
                           ),
-                        if (currentStep == 1)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Address',
-                              ),
-                            ),
-                          ),
-                        if (currentStep == 2)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Booking URL',
-                              ),
-                            ),
-                          ),
-                        if (currentStep == 2)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Booking Phone',
-                              ),
-                            ),
-                          ),
-                        if (currentStep == 2)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Booking Email',
-                              ),
-                            ),
-                          ),
-                        if (currentStep == 2)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Price',
-                              ),
-                            ),
-                          ),
-                        if (currentStep == 2)
-                          const SizedBox(
-                            height: 20,
-                          ),
-                        if (currentStep == 2)
-                          const Text("Registration required ?"),
-                        if (currentStep == 2)
-                          Container(
-                            margin: const EdgeInsets.only(top: 5),
-                            child: Row(
-                              children: [
-                                Row(children: [
-                                  Radio(
-                                    fillColor: MaterialStateColor.resolveWith(
-                                      (Set<MaterialState> states) {
-                                        if (selectedRecurring == "Medium") {
-                                          return Colors.blue;
-                                        }
-                                        return Colors.grey;
-                                      },
+                        ),
+                      if (currentStep == 1)
+                        Container(
+                          width: 400,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 195,
+                                color: white,
+                                padding: const EdgeInsets.only(left: 30),
+                                margin: const EdgeInsets.only(top: 10),
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Start time',
+                                    hintStyle: TextStyle(
+                                      color: Color(0xff9A9A9A),
                                     ),
-                                    value: "Medium",
-                                    groupValue: selectedRecurring,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        selectedRecurring = value;
-                                      });
-                                    },
                                   ),
-                                  const Text("Yes")
-                                ]),
-                                Row(children: [
-                                  Radio(
-                                    fillColor: MaterialStateColor.resolveWith(
-                                      (Set<MaterialState> states) {
-                                        if (selectedRecurring == "Low") {
-                                          return Colors.blue;
-                                        }
-                                        return Colors.grey;
-                                      },
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                width: 195,
+                                color: white,
+                                padding: const EdgeInsets.only(left: 30),
+                                margin: const EdgeInsets.only(top: 10),
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'End time',
+                                    hintStyle: TextStyle(
+                                      color: Color(0xff9A9A9A),
                                     ),
-                                    value: "Low",
-                                    groupValue: selectedRecurring,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        selectedRecurring = value;
-                                      });
-                                    },
-                                  ),
-                                  const Text("No")
-                                ]),
-                              ],
-                            ),
-                          ),
-                        if (currentStep == 3)
-                          const SizedBox(
-                            height: 20,
-                          ),
-                        if (currentStep == 3)
-                          const Text(
-                            "Contact details of Event Manager",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
-                          ),
-                        if (currentStep == 3)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
                                   ),
                                 ),
-                                hintText: 'Name',
+                              ),
+                            ],
+                          ),
+                        ),
+                      if (currentStep == 1)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Address',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 3)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Surname',
+                        ),
+                      if (currentStep == 1)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Zip Code',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 3)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Phone',
+                        ),
+                      if (currentStep == 1)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'City',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 3)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Email',
+                        ),
+                      if (currentStep == 2)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Booking URL',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                        if (currentStep == 3)
-                          Container(
-                            width: 400,
-                            margin: const EdgeInsets.only(top: 10, bottom: 20),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                                hintText: 'Company link for verification',
+                        ),
+                      if (currentStep == 2)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Booking Phone',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
+                        ),
+                      if (currentStep == 2)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Booking Email',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
+                              ),
+                            ),
+                          ),
+                        ),
+                      if (currentStep == 2)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Price',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
+                              ),
+                            ),
+                          ),
+                        ),
+                      if (currentStep == 2)
                         const SizedBox(
                           height: 20,
                         ),
-                        Row(
-                          children: [
-                            if (currentStep != 0)
-                              GestureDetector(
-                                onTap: () {
-                                  if (currentStep != 0) {
-                                    setState(() {
-                                      currentStep--;
-                                    });
-                                  }
-                                },
-                                child: Container(
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    color: primaryColor,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                  ),
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 14),
-                                  margin:
-                                      const EdgeInsets.only(top: 0, bottom: 20),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "Previuos",
-                                      style: TextStyle(color: white),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            const SizedBox(
-                              width: 20,
+                      if (currentStep == 2)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 500),
+                          child: CheckboxListTile(
+                            title: const Text(
+                              "Registration Required",
+                              style: TextStyle(
+                                  color: Color(0xff9A9A9A),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18),
                             ),
-                            if (currentStep != 3)
-                              GestureDetector(
-                                onTap: () {
-                                  if (currentStep != 3) {
-                                    setState(() {
-                                      currentStep++;
-                                    });
-                                  }
-                                },
-                                child: Container(
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    color: primaryColor,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                  ),
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 14),
-                                  margin:
-                                      const EdgeInsets.only(top: 0, bottom: 20),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "Next",
-                                      style: TextStyle(color: white),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                          ],
+                            value: false,
+                            onChanged: (newValue) {
+                              setState(() {
+                                // checkedValue = newValue;
+                              });
+                            },
+                            controlAffinity: ListTileControlAffinity
+                                .leading, //  <-- leading Checkbox
+                          ),
                         ),
-                        if (currentStep == 3)
-                          Container(
-                            width: 300,
-                            decoration: BoxDecoration(
-                              color: primaryColor,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10)),
-                            ),
-                            padding: const EdgeInsets.symmetric(vertical: 14),
-                            margin: const EdgeInsets.only(top: 0, bottom: 20),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                "Create Event",
-                                style: TextStyle(color: white),
+                      if (currentStep == 3)
+                        const SizedBox(
+                          height: 20,
+                        ),
+                      if (currentStep == 3)
+                        Container(
+                          padding: const EdgeInsets.only(left: 530),
+                          alignment: Alignment.centerLeft,
+                          child: const Text(
+                            "Event manager details",
+                            style: TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      if (currentStep == 3)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 30),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'First Name',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
                               ),
                             ),
                           ),
-                      ]),
-                ),
-              ],
-            ),
+                        ),
+                      if (currentStep == 3)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Last Name',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
+                              ),
+                            ),
+                          ),
+                        ),
+                      if (currentStep == 3)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Phone',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
+                              ),
+                            ),
+                          ),
+                        ),
+                      if (currentStep == 3)
+                        Container(
+                          width: 400,
+                          color: white,
+                          padding: const EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Email',
+                              hintStyle: TextStyle(
+                                color: Color(0xff9A9A9A),
+                              ),
+                            ),
+                          ),
+                        ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (currentStep != 0)
+                            GestureDetector(
+                              onTap: () {
+                                if (currentStep != 0) {
+                                  setState(() {
+                                    currentStep--;
+                                  });
+                                }
+                              },
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: SvgPicture.asset(
+                                    "lib/assets/previous.svg"),
+                              ),
+                            ),
+                          const SizedBox(
+                            width: 300,
+                          ),
+                          if (currentStep != 3)
+                            GestureDetector(
+                              onTap: () {
+                                if (currentStep != 3) {
+                                  setState(() {
+                                    currentStep++;
+                                  });
+                                }
+                              },
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child:
+                                    SvgPicture.asset("lib/assets/next.svg"),
+                              ),
+                            ),
+                          if (currentStep == 3)
+                            Container(
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10)),
+                              ),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 14),
+                              margin:
+                                  const EdgeInsets.only(top: 30, bottom: 20),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Create Event",
+                                  style: TextStyle(color: white),
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ]),
+              ),
+            ],
           ),
         ),
+      ),
     );
   }
 }
